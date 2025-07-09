@@ -87,63 +87,50 @@ binary_sensor:
     name: "Input 34"
     pin:
       number: GPIO34
-      inverted: true
   - platform: gpio
     name: "Input 27"
     pin:
       number: GPIO27
-      inverted: true
   - platform: gpio
     name: "Input 13"
     pin:
       number: GPIO13
-      inverted: true
   - platform: gpio
     name: "Input 22"
     pin:
       number: GPIO22
-      inverted: true
   - platform: gpio
     name: "Input 21"
     pin:
       number: GPIO21
-      inverted: true
   - platform: gpio
     name: "Input 19"
     pin:
       number: GPIO19
-      inverted: true
   - platform: gpio
     name: "Input 18"
     pin:
       number: GPIO18
-      inverted: true
   - platform: gpio
     name: "Input 5"
     pin:
       number: GPIO5
-      inverted: true
   - platform: gpio
     name: "Input 17"
     pin:
       number: GPIO17
-      inverted: true
   - platform: gpio
     name: "Input 16"
     pin:
       number: GPIO16
-      inverted: true
   - platform: gpio
     name: "Input 35"
     pin:
       number: GPIO35
-      inverted: true
   - platform: gpio
     name: "Input 23"
     pin:
       number: GPIO23
-      inverted: true
-
 
 sensor:
     #Device UPTIME
@@ -155,5 +142,5 @@ sensor:
   - platform: dallas_temp
     address: 0xdf2ff9d445433f28
     name: "On board temperature"
-    update_interval: 300s
+    update_interval: 60s
 
