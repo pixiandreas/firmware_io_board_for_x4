@@ -1,0 +1,159 @@
+esphome:
+  name: io-board-for-x4
+  friendly_name: io_board_for_x4
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  level: INFO
+  #level: DEBUG
+
+web_server:
+  port: 80
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "AxyytryMN2GMg11/j5550OUI099Yrrrrrrk74pAY000="
+
+ota:
+  - platform: esphome
+    password: "123456"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  #manual_ip:
+    #static_ip: 192.168.XX.XX
+    #gateway: 192.168.XX.X#X
+    #subnet: 255.255.255.0
+    #dns1: 192.168.XX.XX
+    #dns2: 192.168.XX.XX
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Io-Board-For-X4 Fallback Hotspot"
+    password: "ElmB3FgrmhZ5"
+
+captive_portal:
+
+one_wire:
+  - platform: gpio
+    pin: GPIO4
+
+text_sensor:
+  - platform: version
+    name: "version"
+
+output:
+  - platform: gpio
+    pin: GPIO32
+    id: relay_pin_1
+  - platform: gpio
+    pin: GPIO33
+    id: relay_pin_2
+  - platform: gpio
+    pin: GPIO25
+    id: relay_pin_3
+  - platform: gpio
+    pin: GPIO26
+    id: relay_pin_4
+
+switch:
+  - platform: output
+    id: relay_1
+    name: "Relay 1"
+    output: relay_pin_1
+  - platform: output
+    id: relay_2
+    name: "Relay 2"
+    output: relay_pin_2
+  - platform: output
+    id: relay_3
+    name: "Relay 3"
+    output: relay_pin_3
+  - platform: output
+    id: relay_4
+    name: "Relay 4"
+    output: relay_pin_4
+
+binary_sensor:
+  - platform: gpio
+    name: "Input 34"
+    pin:
+      number: GPIO34
+      inverted: true
+  - platform: gpio
+    name: "Input 27"
+    pin:
+      number: GPIO27
+      inverted: true
+  - platform: gpio
+    name: "Input 13"
+    pin:
+      number: GPIO13
+      inverted: true
+  - platform: gpio
+    name: "Input 22"
+    pin:
+      number: GPIO22
+      inverted: true
+  - platform: gpio
+    name: "Input 21"
+    pin:
+      number: GPIO21
+      inverted: true
+  - platform: gpio
+    name: "Input 19"
+    pin:
+      number: GPIO19
+      inverted: true
+  - platform: gpio
+    name: "Input 18"
+    pin:
+      number: GPIO18
+      inverted: true
+  - platform: gpio
+    name: "Input 5"
+    pin:
+      number: GPIO5
+      inverted: true
+  - platform: gpio
+    name: "Input 17"
+    pin:
+      number: GPIO17
+      inverted: true
+  - platform: gpio
+    name: "Input 16"
+    pin:
+      number: GPIO16
+      inverted: true
+  - platform: gpio
+    name: "Input 35"
+    pin:
+      number: GPIO35
+      inverted: true
+  - platform: gpio
+    name: "Input 23"
+    pin:
+      number: GPIO23
+      inverted: true
+
+
+sensor:
+    #Device UPTIME
+  - platform: uptime
+    name: "Uptime"
+    id: sys_uptime
+    update_interval: 60s
+
+  - platform: dallas_temp
+    address: 0xdf2ff9d445433f28
+    name: "On board temperature"
+    update_interval: 300s
+
