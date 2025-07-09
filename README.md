@@ -33,7 +33,7 @@ Alla header är lödda.
 Kan drivas med 5V, 7–30V eller 230V (OBS: 230V kräver behörig elektriker)
 ESP32 med WiFi & Bluetooth – perfekt för t.ex. BLE-proxy i Home Assistant
 
-När inte enheten kan koppla upp sig så kommer en trådlöst nätverk skapas:
+När inte enheten kan koppla upp sig så kommer en trådlöst nätverk skapas
 Ssid: "Io-Board-For-X4 Fallback Hotspot"
 Password: "ElmB3FgrmhZ5"
 
